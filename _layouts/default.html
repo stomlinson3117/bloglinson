@@ -4,3 +4,19 @@
   <title>{{ page.title }}</title>
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
+
+---
+layout: default
+title: "My Blogs"
+---
+
+<div class="blog-cards">
+  {% for post in site.posts %}
+    <div class="blog-card">
+      <img src="{{ post.featured_image }}" alt="{{ post.title }}" class="blog-image">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.description }}</p>
+      <a href="{{ post.link | default: post.url }}" target="_blank" class="blog-link">Read More</a>
+    </div>
+  {% endfor %}
+</div>
